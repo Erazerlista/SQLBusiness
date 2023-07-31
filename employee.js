@@ -20,8 +20,8 @@ const connectionProperties = {
     host: "localhost",
     port: 3306, 
     user: "root",
-    password: "CatTounge1!", 
-    database: "employeeDatabaseTracker"
+    password: "CatTounge1!985", 
+    database: "employeeD"
 };
 
 // Connection
