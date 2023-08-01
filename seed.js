@@ -290,7 +290,6 @@ function addEmployee() {
             connection.end();
         });
 }
-// ... (previous code) ...
 
 // Function to add data (departments, roles, employees)
 function addData() {
