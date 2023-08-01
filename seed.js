@@ -33,7 +33,7 @@ async function runSeedQueries() {
         console.log('...completed');
     } catch (err) {
         console.error('Error occurred:', err);
-    } finally {
+
     }
 }
 
@@ -284,6 +284,48 @@ function addEmployee() {
         .then(() => {
             console.log('Employee added successfully!');
             runCLI();
+        })
+        .catch((error) => {
+            console.error('Error occurred:', error);
+            connection.end();
+        });
+}
+// ... (previous code) ...
+
+// Function to add data (departments, roles, employees)
+function addData() {
+    inquirer
+        .prompt([
+            {
+                type: 'list',
+                name: 'dataType',
+                message: 'What data would you like to add?',
+                choices: [
+                    'Add a department',
+                    'Add a role',
+                    'Add an employee',
+                    'Back to main menu',
+                ],
+            },
+        ])
+        .then((answers) => {
+            switch (answers.dataType) {
+                case 'Add a department':
+                    addDepartment();
+                    break;
+                case 'Add a role':
+                    addRole();
+                    break;
+                case 'Add an employee':
+                    addEmployee();
+                    break;
+                case 'Back to main menu':
+                    runCLI();
+                    break;
+                default:
+                    console.log('Invalid choice.');
+                    runCLI();
+            }
         })
         .catch((error) => {
             console.error('Error occurred:', error);
