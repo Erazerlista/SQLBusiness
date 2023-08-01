@@ -10,11 +10,13 @@ const connection = mysql.createConnection({
     database: "employeeDB"
 });
 
-// Function to execute a single query
 function executeQuery(query) {
     return new Promise((resolve, reject) => {
         connection.query(query, (err, results) => {
-            if (err) reject(err);
+            if (err) {
+                console.error('Error occurred:', err);
+                reject(err);
+            }
             resolve(results);
         });
     });
@@ -32,7 +34,6 @@ async function runSeedQueries() {
     } catch (err) {
         console.error('Error occurred:', err);
     } finally {
-        connection.end();
     }
 }
 
@@ -75,7 +76,7 @@ function runCLI() {
                     viewDepartmentBudget();
                     break;
                 case 'Exit':
-                    connection.end();
+                    connection.end(); // Close the connection when the user chooses to exit
                     console.log('Goodbye!');
                     break;
                 default:
@@ -85,9 +86,10 @@ function runCLI() {
         })
         .catch((error) => {
             console.error('Error occurred:', error);
-            connection.end();
+            connection.end(); // Close the connection if any error occurs
         });
 }
+
 
 // Functions: viewAllDepartments, viewAllRoles, viewAllEmployees, addDepartment, addRole, addEmployee, viewDepartmentBudget). 
 
