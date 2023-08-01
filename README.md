@@ -23,3 +23,7 @@ WHEN I choose to add an employee
 THEN I am prompted to enter the employee’s first name, last name, role, and manager, and that employee is added to the database
 WHEN I choose to update an employee role
 THEN I am prompted to select an employee to update and their new role and this information is updated in the databases
+
+GitHUb: https://github.com/Erazerlista/SQLBusiness
+Screenshot: <img src= "assets\screenshotforsql.png"alt = "code displayed on VS">
+Video: https://drive.google.com/file/d/12FyTUWQj5sx-sz75CuxjdglMbxK_z_O4/view
